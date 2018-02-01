@@ -20,7 +20,6 @@ function zcc (parse) {
     process.exit(1)
   }
 
-
   var fn = require(cmd)
   var args = process.argv.slice(3)
   typeof parse == 'function' ?
