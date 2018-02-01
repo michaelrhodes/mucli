@@ -3,10 +3,10 @@ var path = require('path')
 
 module.exports = zcc
 
-function zcc (dir) {
+function zcc (dir, parse) {
   var file = process.argv[2]
   var cmd = file && path.join(dir,
-    path.basename(file, path.extname(file)) + '.js'
+    basename(file) + '.js'
   )
 
   if (!cmd || !fs.existsSync(cmd)) {
@@ -17,7 +17,12 @@ function zcc (dir) {
     process.exit(1)
   }
 
-  require(cmd).apply(this, process.argv.slice(3))
+
+  var fn = require(cmd)
+  var args = process.argv.slice(3)
+  typeof parse == 'function' ?
+    fn.call(this, parse(args)) :
+    fn.apply(this, args)
 }
 
 function options (dir) {
@@ -34,5 +39,7 @@ function command (file) {
 }
 
 function basename (file) {
-  return path.basename(file, path.extname(file))
+  return path.basename(file,
+    path.extname(file)
+  )
 }
