@@ -3,11 +3,14 @@ var path = require('path')
 
 module.exports = zcc
 
-function zcc (dir, parse) {
+function zcc (parse) {
   var file = process.argv[2]
-  var cmd = file && path.join(dir,
-    basename(file) + '.js'
-  )
+
+  var dir = module.parent &&
+    path.dirname(module.parent.filename)
+
+  var cmd = file && dir &&
+    path.join(dir, basename(file) + '.js')
 
   if (!cmd || !fs.existsSync(cmd)) {
     var pkg = require(path.join(dir, 'package.json'))

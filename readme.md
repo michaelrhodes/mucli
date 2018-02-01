@@ -11,7 +11,7 @@ $ npm install michaelrhodes/zcc#1.1.0
 ```js
 // bin.js
 #!/usr/bin/env node
-require('zcc')(__dirname)
+require('zcc')()
 
 // hello.js
 module.exports = function (name) {
@@ -29,7 +29,7 @@ chmod u+x bin.js
 ```js
 // bin.js
 #!/usr/bin/env node
-require('zcc')(__dirname, require('mri'))
+require('zcc')(require('mri'))
 
 // hello.js
 module.exports = function (args) {
