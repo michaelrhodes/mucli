@@ -1,6 +1,6 @@
 {
   "name": "zcc",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "description": "a zero-config cli core",
   "repository": "git@github.com/michaelrhodes/zcc",
