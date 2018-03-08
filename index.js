@@ -12,7 +12,10 @@ function zcc (parse) {
   var cmd = file && dir &&
     path.join(dir, basename(file) + '.js')
 
-  if (!cmd || !fs.existsSync(cmd)) {
+  var nocmd = !(cmd && fs.existsSync(cmd)) &&
+    !fs.existsSync(cmd = path.join(dir, 'help.js'))
+
+  if (nocmd) {
     var pkg = require(path.join(dir, 'package.json'))
     var opts = options(dir) || 'command'
     var help = pkg.name + ' <' + opts + '> [args]'
