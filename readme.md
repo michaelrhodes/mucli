@@ -3,7 +3,7 @@ a zero-config cli core
 
 ## install
 ```sh
-$ npm install michaelrhodes/zcc#2.0.0
+$ npm install michaelrhodes/zcc#2.1.1
 ```
 
 ## use
