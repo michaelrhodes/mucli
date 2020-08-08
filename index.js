@@ -27,7 +27,7 @@ function zcc (parse) {
   var args = process.argv.slice(3)
   typeof parse == 'function' ?
     fn.call(this, parse(args)) :
-    fn.apply(this, args)
+    fn.call(this, args)
 }
 
 function options (dir) {
