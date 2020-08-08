@@ -7,7 +7,11 @@ $ npm install michaelrhodes/zcc#2.1.1
 ```
 
 ## use
-
+```sh
+chmod u+x bin.js
+./bin.js hello world
+> hello, world
+```
 ```js
 // bin.js
 #!/usr/bin/env node
@@ -19,13 +23,12 @@ module.exports = function (name) {
 }
 ```
 
+### byo argument parser
 ```sh
 chmod u+x bin.js
-./bin.js hello world
+./bin.js hello --name world
 > hello, world
 ```
-
-### byo argument parser
 ```js
 // bin.js
 #!/usr/bin/env node
@@ -35,12 +38,6 @@ require('zcc')(require('mri'))
 module.exports = function (args) {
   console.log('hello, ' + args.name)
 }
-```
-
-```sh
-chmod u+x bin.js
-./bin.js hello --name world
-> hello, world
 ```
 
 ## obey
